@@ -18,22 +18,24 @@ public class UserController {
 
 
     @GetMapping("/getAllUser")
-    public List<UserDTO> fillAll(){
+    public List<UserDTO> fillAll() {
         return userService.fillAll();
     }
 
     @PostMapping("/saveUser")
-    public void saveUser(@RequestBody UserDTO userDTO){
+    public void saveUser(@RequestBody UserDTO userDTO) {
         userService.saveUser(userDTO);
     }
 
     @PostMapping("/login")
-    public boolean checkLogin(@RequestParam("username") String username,@RequestParam("password") String password){
-        return userService.checkLogin(username,password);
-    }
-    @GetMapping("/logout")
-    public String logOut(HttpServletRequest request, HttpServletResponse response){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if(auth!=null){
+    public boolean checkLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
+        return userService.checkLogin(username, password);
     }
 }
+
+//    @GetMapping("/logout")
+//    public String logOut(HttpServletRequest request, HttpServletResponse response){
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        if(auth!=null){
+//    }
+//}

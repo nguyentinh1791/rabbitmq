@@ -29,8 +29,10 @@ public class SendMailServiceImpl implements SendMailService {
 
             mailMessage.setFrom(sender);
             mailMessage.setTo(email.getRecipient());
-            mailMessage.setText(email.getMessage());
+            mailMessage.setText(new ReadFile().read());
             mailMessage.setSubject(email.getSubject());
+
+
 
             javaMailSender.send(mailMessage);
             return "Successfully!!";
@@ -47,7 +49,8 @@ public class SendMailServiceImpl implements SendMailService {
             mimeMessageHelper = new MimeMessageHelper(mailMessage, true);
             mimeMessageHelper.setFrom(sender);
             mimeMessageHelper.setTo(email.getRecipient());
-            mimeMessageHelper.setText(email.getMessage());
+//            mimeMessageHelper.setText(email.getMessage());
+            mimeMessageHelper.setText(new ReadFile().read(), true);
             mimeMessageHelper.setSubject(email.getSubject());
 
             FileSystemResource file = new FileSystemResource(new File(email.getAttachment()));

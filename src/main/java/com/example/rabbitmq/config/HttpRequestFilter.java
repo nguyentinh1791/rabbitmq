@@ -33,11 +33,11 @@ public class HttpRequestFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         //check login
-        UserDTO userDTO = new UserDTO();
-        Boolean login = (Boolean) hashOperations.get(hashReference,hashOperations);
-        if(login){
+//        UserDTO userDTO = new UserDTO();
+//        Boolean login = (Boolean) hashOperations.get(hashReference,hashOperations);
+//        if(login){
             chain.doFilter(request, response);
-        }
+//        }
 
     }
 

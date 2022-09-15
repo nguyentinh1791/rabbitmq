@@ -39,9 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterAfter(new HttpRequestFilter(), BasicAuthenticationFilter.class).authorizeRequests()
                 .antMatchers("/register").permitAll()
-                .antMatchers("*/login").permitAll();
+                .antMatchers("*/sendMail").permitAll();
         http.csrf().disable();
-        http.logout().logoutRequestMatcher(new AndRequestMatcher(""));
+//        http.logout().logoutRequestMatcher(new AndRequestMatcher(""));
     }
 
 }
